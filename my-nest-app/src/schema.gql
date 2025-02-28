@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Users {
+  id: Int!
+  name: String
+  email: String!
+  password: String
+  mobileNo: Float
+  avatar: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  status: Float
+  role: String
+  createdBy: Float
+  deletedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AuthResponse {
+  accessToken: String!
+  email: String!
+}
+
+type Query {
+  getHello: String!
+  getMessages: [String!]!
+}
+
+type Mutation {
+  register(registerData: RegisterUserDto!): Users!
+  login(input: LoginUserDto!): AuthResponse!
+  logout: String!
+  sendMessage(message: String!): Boolean!
+}
+
+input RegisterUserDto {
+  name: String!
+  email: String!
+  password: String!
+  mobileNo: Float
+  avatar: String
+}
+
+input LoginUserDto {
+  email: String!
+  password: String!
+}
